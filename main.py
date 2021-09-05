@@ -11,25 +11,6 @@ from pydantic import BaseModel
 Connect to the specified email account and
 print all emails in the Inbox. If set, filter the
 emails by search criteria.
-
-Usage:
-    export email_host=email.example.com
-    export email_user=bob@example.com
-    export email_password="secret"
-
-    python main.py
-
-Usage with search criteria:
-    export email_host=email.example.com
-    export email_user=bob@example.com
-    export email_password="secret"
-
-    export imap_search_subject="Example subject"
-    export imap_search_unseen=1 # only show unseen/unread emails
-    export imap_search_since_date="22-Jul-2012"
-
-    python main.py
-
 """
 
 
