@@ -15,7 +15,8 @@ Usage command line:
     export email_user=bob@example.com
     export email_passord="secret"
 
-    python main.py
+    python -i main.py
+    search_email()
 ```
 
 Usage with search criteria:
@@ -28,5 +29,6 @@ Usage with search criteria:
     export imap_search_unseen=1 # only show unseen/unread emails
     export imap_search_since_date="22-Jul-2012"
 
-    python main.py
+    python -i main.py
+    search_email()
 ```
