@@ -5,7 +5,11 @@ Connect to the specified email account and
 print all emails in the Inbox. If set, filter the
 emails by search criteria.
 
-Usage:
+Usage api:
+
+https://search-email.dokku.karmacomputing.co.uk/docs # then press 'try it'
+
+Usage command line:
 ```
     export email_host=email.example.com
     export email_user=bob@example.com
