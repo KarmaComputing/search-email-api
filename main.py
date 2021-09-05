@@ -1,7 +1,8 @@
 import imaplib
-import pprint
 import datetime
 import os
+from email import policy
+from email.parser import BytesParser
 
 """
 Connect to the specified email account and
@@ -36,6 +37,8 @@ imap_search_subject = os.getenv("imap_search_subject", None)
 imap_search_unseen = os.getenv("imap_search_unseen", None)
 imap_search_since_date = os.getenv("imap_search_since_date", None)
 
+output_seperator = os.getenv("output_seperator", "#" * 80)
+
 today = datetime.date.today() - datetime.timedelta(days=1)
 since = today.strftime("%d-%b-%Y")
 
@@ -54,7 +57,7 @@ if imap_search_unseen:
     searchCriteria += " UNSEEN"
 
 if imap_search_since_date:
-    searchCriteria += " SINCE {imap_search_since_date}"
+    searchCriteria += f" SINCE {imap_search_since_date}"
 
 if searchCriteria == "":
     # If no search criteria given, fetch all emails
@@ -64,7 +67,9 @@ if searchCriteria == "":
 resp, emails = imap.search(None, searchCriteria)
 for num in emails[0].split():
     resp, data = imap.fetch(num, "(RFC822)")
-    print("Message: {0}\n".format(num))
-    pprint.pprint(data[0][1])
-    break
+    msg = BytesParser(policy=policy.default).parsebytes(data[0][1])
+    simplest = msg.get_body(preferencelist=("plain", "html"))
+    print("".join(simplest.get_content().splitlines(keepends=True)))
+    print(output_seperator)
+
 imap.close()
