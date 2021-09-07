@@ -5,6 +5,21 @@ Connect to the specified email account and
 print all emails in the Inbox. If set, filter the
 emails by search criteria.
 
+Install requirements: 
+
+venv
+```
+python3 -m venv venv 
+```
+activate env
+```
+./ venv/bin/activate
+```
+requirements
+``` 
+python3 -r requirements.txt
+```
+
 Usage api:
 
 https://search-email.dokku.karmacomputing.co.uk/docs # then press 'try it'
