@@ -28,7 +28,7 @@ Usage command line:
 ```
     export email_host=email.example.com
     export email_user=bob@example.com
-    export email_passord="secret"
+    export email_password="secret"
 
     python -i main.py
     search_email()
@@ -38,7 +38,7 @@ Usage with search criteria:
 ```
     export email_host=email.example.com
     export email_user=bob@example.com
-    export email_passord="secret"
+    export email_password="secret"
 
     export imap_search_subject="Example subject"
     export imap_search_unseen=1 # only show unseen/unread emails
